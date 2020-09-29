@@ -15,7 +15,6 @@
   -st-named: text-medium-normal;
 }
 
-
 .button {
   -st-extends: ButtonNext;
   -st-states: selected, ellipsis;
