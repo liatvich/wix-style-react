@@ -72,7 +72,7 @@ describe(CardFolderTabs.displayName, () => {
         <CardFolderTabs.Tab id="tab-1" name="First Tab">
           <div>{FIRST_TAB_CONTENT}</div>
         </CardFolderTabs.Tab>
-        <CardFolderTabs.Tab id="tab-2" name="Second Tab" disabled>
+        <CardFolderTabs.Tab id="tab-2" name="Disabled Tab" disabled>
           <div>{DISABLED_TAB_CONTENT}</div>
         </CardFolderTabs.Tab>
       </CardFolderTabs>,
