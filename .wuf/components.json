@@ -71,6 +71,9 @@
   "Card": {
     "path": "src/Card"
   },
+  "CardFolderTabs": {
+    "path": "src/CardFolderTabs"
+  },
   "CardGalleryItem": {
     "path": "src/CardGalleryItem"
   },

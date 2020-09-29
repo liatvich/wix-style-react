@@ -1,0 +1,111 @@
+:vars {}
+
+:import {
+  -st-from: 'wix-ui-core/dist/src/components/button-next/button-next.st.css';
+  -st-default: ButtonNext;
+}
+
+:import {
+  -st-from: '../Foundation/stylable/colors.st.css';
+  -st-named: B10, F00, D10, D60, D80, D10-30;
+}
+
+:import {
+  -st-from: '../Foundation/stylable/typography.st.css';
+  -st-named: text-medium-normal;
+}
+
+
+.button {
+  -st-extends: ButtonNext;
+  -st-states: selected, ellipsis;
+  -st-mixin: text-medium-normal;
+
+  display: flex;
+  flex: 1 1 66px;
+  justify-content: center;
+  align-items: center;
+
+  height: 60px;
+  padding: 18px;
+  margin-right: 0;
+  margin-left: 0;
+  min-width: 66px;
+
+  border-radius: 8px 8px 0 0;
+  border: solid value(D60);
+  border-width: 0 1px 1px 0px;
+
+  background-color: value(D80);
+  color: value(D10);
+  outline: none;
+}
+
+.button::content {
+  display: flex;
+  align-items: center;
+}
+
+.ellipsisWrapper .button {
+  width: 100%;
+}
+
+.button:hover,
+.button:active {
+  color: value(B10);
+}
+
+.button:disabled {
+  color: value(D10-30);
+}
+
+.button:focus-visible {
+  border: 3px solid value(F00) !important;
+  z-index: 1000 !important;
+  clip-path: none !important;
+  padding: 15px 16px 16px 15px;
+  margin-bottom: 0 !important;
+  height: 60px !important;
+}
+
+.button:selected:focus-visible {
+  padding: 15px 16px 16px 15px;
+}
+
+.button:selected {
+  height: 62px;
+  margin-bottom: -2px;
+  border-width: 0 1px 2px 0px;
+  border-bottom: solid transparent;
+  z-index: 1;
+  color: value(B10);
+  box-shadow: 0 2px 4px 0 rgba(22, 45, 61, 0.12), 0 0 6px 0 rgba(22, 45, 61, 0.12);
+}
+
+.headerWrapper > *:first-child,
+.headerWrapper > *:first-child .button {
+  clip-path: inset(-4px -6px 0px 1px);
+}
+
+
+.headerWrapper {
+  display: flex;
+}
+
+.tabContentWrapper {
+  background-color: value(D80);
+  z-index: 1;
+  position: relative;
+}
+
+.ellipsisWrapper {
+  -st-states: selected;
+  flex: 1 1 66px;
+  max-width: fit-content;
+}
+
+.ellipsisWrapper:selected {
+  z-index: 1;
+  padding: 4px;
+  margin: -4px;
+}

@@ -469,6 +469,10 @@ export * from './FeatureList';
 export { default as MarketingPageLayoutContent } from './MarketingPageLayoutContent';
 
 export { default as FunnelChart } from './FunnelChart';
+
+export { default as CardFolderTabs } from './CardFolderTabs';
+export * from './CardFolderTabs';
+
 export * from './FunnelChart';
 
 export * from './MarketingPageLayoutContent';

@@ -30,6 +30,7 @@ require('../src/CalendarPanel/docs/index.story');
 require('../src/CalendarPanelFooter/docs/index.story');
 require('../src/Card/Subheader/docs/index.story');
 require('../src/Card/docs/index.story.js');
+require('../src/CardFolderTabs/docs/index.story');
 require('../src/CardGalleryItem/docs/index.story');
 require('../src/Carousel/docs/index.story');
 require('../src/Checkbox/docs/index.story');
