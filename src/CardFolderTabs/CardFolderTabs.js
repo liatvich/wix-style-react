@@ -18,7 +18,7 @@ const tabButton = ({
   focusableOnBlur,
 }) => (
   <button
-    data-hook={dataHooks.tabButton}
+    data-hook={dataHooks.tabButton(id)}
     className={st(classes.button, { selected, disabled }, className)}
     style={{ [vars['maxWidth']]: maxTabWidth }}
     onClick={() => onTabChange(id)}

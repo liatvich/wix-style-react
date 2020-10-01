@@ -3,7 +3,10 @@ import * as React from 'react';
 export interface CardFolderTabProps {
   id: string;
   children: React.ReactNode;
-  isDisabled?: boolean;
+  name: string;
+  disabled?: boolean;
 }
 
-export default class CardFolderTab extends React.PureComponent<CardFolderTabProps>{}
+export default class CardFolderTab extends React.PureComponent<
+  CardFolderTabProps
+> {}

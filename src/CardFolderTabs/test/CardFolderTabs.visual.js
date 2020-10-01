@@ -3,17 +3,29 @@ import { storiesOf } from '@storybook/react';
 import CardFolderTabs from '../CardFolderTabs';
 
 const commonProps = {
-  // use for repeated props across the tests (e.g. {buttonText: 'example'})
+  children: [
+    <CardFolderTabs.Tab id="1" name="Simple tab">
+      <div
+        style={{ height: '250px', width: '500px', backgroundColor: '#eee' }}
+      />
+    </CardFolderTabs.Tab>,
+    <CardFolderTabs.Tab id="2" name="Long name tab">
+      <div />
+    </CardFolderTabs.Tab>,
+    <CardFolderTabs.Tab id="3" name="Disabled tab" disabled>
+      <div />
+    </CardFolderTabs.Tab>,
+  ],
 };
 
 const tests = [
   {
-    describe: 'sanity', // prop name (e.g. size)
+    describe: 'sanity',
     its: [
       {
-        it: 'default', // prop variation (e.g. small)
+        it: 'default',
         props: {
-          // the simulation (e.g. {size: "small"})
+          activeId: '1',
         },
       },
     ],

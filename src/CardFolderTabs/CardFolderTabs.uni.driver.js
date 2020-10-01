@@ -1,50 +1,25 @@
-import { buttonNextDriverFactory } from 'wix-ui-core/dist/src/components/button-next/button-next.uni.driver';
-
-import {
-  baseUniDriverFactory,
-  findByHook,
-  findByHookAtIndex,
-} from '../../test/utils/unidriver';
+import { baseUniDriverFactory, findByHook } from '../../test/utils/unidriver';
 import { dataHooks } from './constants';
 
 export const cardFolderTabsDriverFactory = base => {
-  const getButtonByIndex = buttonIndex =>
-    findByHookAtIndex(base, dataHooks.tabButton, buttonIndex);
+  const getButtonById = id => findByHook(base, dataHooks.tabButton(id));
 
   return {
     ...baseUniDriverFactory(base),
 
     /**
-     * Gets button text
-     * @return {Promise<string>}
-     */
-    getButtonTextContent: buttonIndex =>
-      buttonNextDriverFactory(getButtonByIndex(buttonIndex))
-        .getButtonTextContent,
-
-    /**
-     * Checks whether button is focused
+     * Checks whether tab is disabled by id
+     * @param {string} tabId
      * @return {Promise<boolean>}
      */
-    getIsFocused: buttonIndex =>
-      buttonNextDriverFactory(getButtonByIndex(buttonIndex)).isFocused,
+    getIsTabDisabledById: async tabId =>
+      (await getButtonById(tabId).attr('disabled')) !== null,
 
     /**
-     * Checks whether button is disabled
-     * @return {Promise<boolean>}
-     */
-    getIsButtonDisabled: buttonIndex => getButtonByIndex(buttonIndex).disabled,
-
-    /**
-     * Selects tab by tab index
+     * Selects tab by tab by id
+     * @param {string} tabId
      * @return {Promise<void>}
      */
-    selectTab: tabIndex => getButtonByIndex(tabIndex).click(),
-
-    /**
-     * Returns currently selected tab text content
-     * @return {Promise<string>}
-     */
-    getCurrentTabTextContent: () => findByHook(base, dataHooks.content).text(),
+    selectTabById: tabId => getButtonById(tabId).click(),
   };
 };

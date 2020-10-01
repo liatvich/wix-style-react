@@ -1,4 +1,5 @@
 import * as React from 'react';
+import CardFolderTab, { CardFolderTabProps } from './Tab';
 
 export interface CardFolderTabsProps {
   dataHook?: string;
@@ -9,4 +10,6 @@ export interface CardFolderTabsProps {
 
 export default class CardFolderTabs extends React.PureComponent<
   CardFolderTabsProps
-> {}
+> {
+  static Tab: (props?: CardFolderTabProps) => React.ReactElement;
+}
