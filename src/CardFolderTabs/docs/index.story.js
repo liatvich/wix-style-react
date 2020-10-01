@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   header,
   tabs,
@@ -7,19 +8,48 @@ import {
   title,
   divider,
   example as baseExample,
-  code as baseCode,
   playground,
   api,
   testkit,
 } from 'wix-storybook-utils/Sections';
-
+import { Add } from 'wix-ui-icons-common';
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
-
+import * as examples from './examples';
 import CardFolderTabs from '..';
+import Card from '../../Card';
+import EmptyState from '../../EmptyState';
+import TextButton from '../../TextButton';
 
 const example = config => baseExample({ components: allComponents, ...config });
-const code = config => baseCode({ components: allComponents, ...config });
+const children = [
+  <CardFolderTabs.Tab id="1" name="Nice tab">
+    <Card>
+      <Card.Content>
+        <EmptyState
+          title="This is a nice tab"
+          subtitle="Create your own tabs and try them!"
+          theme="section"
+        >
+          <TextButton prefixIcon={<Add />}>Pointless button</TextButton>
+        </EmptyState>
+      </Card.Content>
+    </Card>
+  </CardFolderTabs.Tab>,
+  <CardFolderTabs.Tab id="2" name="Another nice tab">
+    <Card>
+      <Card.Content>
+        <EmptyState
+          title="This is also a nice tab"
+          subtitle="It has a very long title that will eventually be truncated by ellipsis"
+          theme="section"
+        >
+          <TextButton prefixIcon={<Add />}>Pointless button</TextButton>
+        </EmptyState>
+      </Card.Content>
+    </Card>
+  </CardFolderTabs.Tab>,
+];
 
 export default {
   category: storySettings.category,
@@ -29,18 +59,17 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    maxTabWidth: 200,
-    dataHook: 'some-data-hook',
-    className: 'wrapper-class-name',
+    maxTabWidth: '138px',
     activeId: '1',
+    children,
   },
 
   exampleProps: {
-    maxTabWidth: 200,
-    dataHook: 'some-data-hook',
-    className: 'wrapper-class-name',
-    activeId: '1',
+    onTabChange: () => 'I was called',
+    activeId: ['1', '2'],
   },
+
+  hiddenProps: ['children'],
 
   sections: [
     header({
@@ -49,7 +78,7 @@ export default {
 
     tabs([
       tab({
-        title: 'Basic Example',
+        title: 'Description',
         sections: [
           description({
             title: 'Basic Example',
@@ -57,10 +86,7 @@ export default {
               'CardFolderTabs combined with CardFolderTabs.Tab compound component enables navigation between content at the same page.',
           }),
 
-          importExample(
-            `import { CardFolderTabs } from 'wix-style-react';
-const { Tab } = CardFolderTabs;`,
-          ),
+          importExample(),
 
           divider(),
 
@@ -70,48 +96,7 @@ const { Tab } = CardFolderTabs;`,
             title: 'Simple Usage',
             text:
               'An example with disabled tab and a long tab name. Long names have ellipsis overflow with a tooltip containing full name.',
-            source: `
-              class CollapsableCard extends React.Component {
-                state = { activeTabId: "1" };
-                render() {
-                  return (
-                    <CardFolderTabs activeId={this.state.activeTabId} onTabChange={(activeTabId) => this.setState({activeTabId})}>
-                      <CardFolderTabs.Tab id="1" name="Some tab">
-                        <div style={{height: 400}}>First tab content</div>
-                      </CardFolderTabs.Tab>
-                      <CardFolderTabs.Tab id="2" name="Looooooooong tab name">
-                        <div style={{height: 400}}>Second tab content</div>
-                      </CardFolderTabs.Tab>
-                      <CardFolderTabs.Tab id="3" name="Disabled tab" disabled>
-                        <div style={{height: 400}}>Third tab content</div>
-                      </CardFolderTabs.Tab>
-                    </CardFolderTabs>
-                  );
-                }
-              }`,
-          }),
-
-          code({
-            title: 'Interactive Preview',
-            source: `
-              class CollapsableCard extends React.Component {
-                state = { activeTabId: "1" };
-                render() {
-                  return (
-                    <CardFolderTabs activeId={this.state.activeTabId} onTabChange={(activeTabId) => this.setState({activeTabId})}>
-                      <CardFolderTabs.Tab id="1" name="Some tab">
-                        <div style={{height: 400}}>First tab content</div>
-                      </CardFolderTabs.Tab>
-                      <CardFolderTabs.Tab id="2" name="Looooooooong tab name">
-                        <div style={{height: 400}}>Second tab content</div>
-                      </CardFolderTabs.Tab>
-                      <CardFolderTabs.Tab id="3" name="Disabled tab" disabled>
-                        <div style={{height: 400}}>Third tab content</div>
-                      </CardFolderTabs.Tab>
-                    </CardFolderTabs>
-                  );
-                }
-              }`,
+            source: examples.simple,
           }),
         ],
       }),

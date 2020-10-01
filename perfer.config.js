@@ -21,6 +21,7 @@ const javascriptFiles = [
   ['CalendarPanel.bundle.min.js', 113],
   ['CalendarPanelFooter.bundle.min.js', 113],
   ['Card.bundle.min.js', 41],
+  ['CardFolderTabs.bundle.min.js', 36],
   ['CardGalleryItem.bundle.min.js', 65],
   ['Carousel.bundle.min.js', 68],
   ['Checkbox.bundle.min.js', 44],
@@ -152,7 +153,6 @@ const javascriptFiles = [
   ['VerticalTabs.bundle.min.js', 38],
   ['VerticalTabsItem.bundle.min.js', 38],
   ['WarningIndicator.bundle.min.js', 40],
-  ['CardFolderTabs.bundle.min.js', 10],
 ];
 
 const cssFiles = [
@@ -173,6 +173,7 @@ const cssFiles = [
   ['CalendarPanel.min.css', 5],
   ['CalendarPanelFooter.min.css', 5],
   ['Card.min.css', 2],
+  ['CardFolderTabs.min.css', 1],
   ['CardGalleryItem.min.css', 3],
   ['Carousel.min.css', 10],
   ['Checkbox.min.css', 2],

@@ -1,62 +1,72 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
-
+import Text from '../Text';
 import { dataHooks } from './constants';
 import Tab from './Tab';
-import { st, classes } from './CardFolderTabs.st.css';
-import Ellipsis from '../common/Ellipsis';
-import { generateDataAttr } from '../utils/generateDataAttr';
+import { st, classes, vars } from './CardFolderTabs.st.css';
+import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable';
+
+const tabButton = ({
+  className,
+  id,
+  name,
+  disabled,
+  selected,
+  maxTabWidth,
+  onTabChange,
+  focusableOnFocus,
+  focusableOnBlur,
+}) => (
+  <button
+    data-hook={dataHooks.tabButton}
+    className={st(classes.button, { selected, disabled }, className)}
+    style={{ [vars['maxWidth']]: maxTabWidth }}
+    onClick={() => onTabChange(id)}
+    disabled={disabled}
+    key={id}
+    onFocus={focusableOnFocus}
+    onBlur={focusableOnBlur}
+  >
+    <Text ellipsis className={classes.buttonText}>
+      {name}
+    </Text>
+  </button>
+);
+
+const TabButton = withFocusable(tabButton);
 
 class CardFolderTabs extends React.PureComponent {
-  isActiveTab = cardFolderTab => this.props.activeId === cardFolderTab.props.id;
-
-  handleTabChange = tabId => () => {
-    this.props.onTabChange(tabId);
-  };
-
-  getTabButton = cardFolderTab => {
-    const selected = this.isActiveTab(cardFolderTab);
-    return (
-      <Ellipsis
-        ellipsis
-        showTooltip
-        wrapperClassName={st(classes.ellipsisWrapper, { selected })}
-        render={({ ref, ellipsisClasses }) => (
-          <ButtonNext
-            {...generateDataAttr(this.props, ['skin', 'size', 'priority'])}
-            className={st(classes.button, { selected })}
-            data-hook={dataHooks.tabButton}
-            contentClassName={ellipsisClasses()}
-            contentRef={ref}
-            onClick={this.handleTabChange(cardFolderTab.props.id)}
-            disabled={cardFolderTab.props.disabled}
-            style={{ maxWidth: this.props.maxTabWidth }}
-            key={cardFolderTab.props.id}
-          >
-            <span>{cardFolderTab.props.name}</span>
-          </ButtonNext>
-        )}
-      />
-    );
-  };
-
   render() {
-    const { dataHook, className } = this.props;
-    const cardFolderTabs = Array.isArray(this.props.children)
-      ? this.props.children
-      : [this.props.children];
+    const {
+      dataHook,
+      className,
+      children,
+      activeId,
+      maxTabWidth,
+      onTabChange,
+    } = this.props;
+    const cardFolderTabs = Array.isArray(children) ? children : [children];
 
     return (
-      <div className={st(className)} data-hook={dataHook}>
-        <div data-hook={dataHooks.header} className={st(classes.headerWrapper)}>
-          {cardFolderTabs.map(this.getTabButton)}
+      <div className={st(classes.root, className)} data-hook={dataHook}>
+        <div data-hook={dataHooks.header} className={classes.headerWrapper}>
+          {cardFolderTabs.map(({ props }) => (
+            <TabButton
+              key={props.id}
+              {...props}
+              selected={activeId === props.id}
+              maxTabWidth={maxTabWidth}
+              onTabChange={
+                typeof onTabChange === 'function' ? onTabChange : undefined
+              }
+            />
+          ))}
         </div>
         <div
           data-hook={dataHooks.content}
-          className={st(classes.tabContentWrapper)}
+          className={classes.tabContentWrapper}
         >
-          {cardFolderTabs.filter(this.isActiveTab)}
+          {cardFolderTabs.filter(tab => activeId === tab.props.id)}
         </div>
       </div>
     );
@@ -79,11 +89,11 @@ CardFolderTabs.propTypes = {
   onTabChange: PropTypes.func,
 
   /** Max width of tab buttons */
-  maxTabWidth: PropTypes.number,
+  maxTabWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 CardFolderTabs.defaultProps = {
-  maxTabWidth: 138,
+  maxTabWidth: '138px',
 };
 
 CardFolderTabs.Tab = Tab;
