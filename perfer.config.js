@@ -270,7 +270,6 @@ const cssFiles = [
   ['Tooltip.min.css', 2],
   ['VariableInput.min.css', 2],
   ['WarningIndicator.min.css', 2],
-  ['CardFolderTabs.min.css', 1],
 ];
 
 const getJS = () =>
