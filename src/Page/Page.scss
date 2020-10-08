@@ -159,6 +159,8 @@ $minimizedHeaderContainerZIndex: $stickyZIndex + $zIndexLayerStep;
 // Needed in order to be above the background image which has position absolute
 .contentFloating {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .contentFullWidth {
