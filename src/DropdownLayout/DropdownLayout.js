@@ -385,13 +385,13 @@ class DropdownLayout extends React.PureComponent {
     );
   }
 
-  _convertOption(option) {
+  _convertOption({ option, idx }) {
     const { value, id, title: isTitle } = option;
 
     if (value === DIVIDER_OPTION_VALUE) {
       return listItemSectionBuilder({
         dataHook: OPTION_DATA_HOOKS.DIVIDER,
-        id,
+        id: id || idx,
         type: 'divider',
       });
     }
@@ -409,7 +409,7 @@ class DropdownLayout extends React.PureComponent {
   }
 
   _renderOption({ option, idx }) {
-    option = this._convertOption(option);
+    option = this._convertOption({ option, idx });
 
     const content = this._renderOptionContent({ option, idx });
 
