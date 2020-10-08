@@ -78,6 +78,7 @@
 
 .tabContentWrapper {
   background-color: value(D80);
+  border-radius: 0 8px 8px 8px;
   z-index: 1;
   position: relative;
 }
