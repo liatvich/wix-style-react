@@ -124,6 +124,9 @@ describe('DropdownLayout', () => {
       const driver = createDriver(<DropdownLayout visible options={options} />);
       expect(await driver.optionsLength()).toBe(7);
       expect(await driver.optionContentAt(0)).toBe('Option 1');
+      expect(
+        await (await driver.optionByHook('dropdown-item-0')).isDivider(),
+      ).toBe(false);
 
       expect(await driver.isOptionADivider(4)).toBe(true);
       expect(
