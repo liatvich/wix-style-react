@@ -23,7 +23,7 @@ import TextButton from '../../TextButton';
 
 const example = config => baseExample({ components: allComponents, ...config });
 const children = [
-  <CardFolderTabs.Tab id="1" name="Nice tab">
+  <CardFolderTabs.Tab id="1" name="Selected tab">
     <Card>
       <Card.Content>
         <EmptyState
@@ -36,7 +36,20 @@ const children = [
       </Card.Content>
     </Card>
   </CardFolderTabs.Tab>,
-  <CardFolderTabs.Tab id="2" name="Another nice tab">
+  <CardFolderTabs.Tab id="2" name="Second Long Tab">
+    <Card>
+      <Card.Content>
+        <EmptyState
+          title="This is also a nice tab"
+          subtitle="It has a very long title that will eventually be truncated by ellipsis"
+          theme="section"
+        >
+          <TextButton prefixIcon={<Add />}>Pointless button</TextButton>
+        </EmptyState>
+      </Card.Content>
+    </Card>
+  </CardFolderTabs.Tab>,
+  <CardFolderTabs.Tab id="3" name="Disabled Tab" disabled>
     <Card>
       <Card.Content>
         <EmptyState
@@ -81,9 +94,9 @@ export default {
         title: 'Description',
         sections: [
           description({
-            title: 'Basic Example',
+            title: 'Description',
             text:
-              'CardFolderTabs combined with CardFolderTabs.Tab compound component enables navigation between content at the same page.',
+              'Card with folder tabs allows content distribution within a card. Switching between the different content areas is done by using the tabs at the top of the card.',
           }),
 
           importExample(),
@@ -93,10 +106,17 @@ export default {
           title('Examples'),
 
           example({
-            title: 'Simple Usage',
+            title: 'Structure',
             text:
-              'An example with disabled tab and a long tab name. Long names have ellipsis overflow with a tooltip containing full name.',
+              'CardFolderTabs consist of a list of tabs and a content area.',
             source: examples.simple,
+          }),
+
+          example({
+            title: 'Max tab width',
+            text:
+              'Tab can have a specified max width. Long names will have ellipsis overflow with a tooltip containing full name.',
+            source: examples.maxTabWidth,
           }),
         ],
       }),

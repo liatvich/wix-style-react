@@ -44,9 +44,8 @@
   outline: none;
 }
 
-.headerWrapper > *:first-child,
-.headerWrapper > *:first-child .button {
-  clip-path: inset(-4px -6px 0px 1px);
+.headerWrapper button:first-child {
+  clip-path: inset(-4px -6px 0 0);
 }
 
 .buttonText {
