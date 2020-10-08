@@ -9,11 +9,13 @@ import {
   DATA_SHOWN,
   DATA_DIRECTION,
   DROPDOWN_LAYOUT_DIRECTIONS,
+  OPTION_DATA_HOOKS,
 } from './DataAttr';
 import { st, classes } from './DropdownLayout.st.css';
 import deprecationLog from '../utils/deprecationLog';
 import { filterObject } from '../utils/filterObject';
 import ReactDOM from 'react-dom';
+import { listItemSectionBuilder } from '../ListItemSection';
 
 const MOUSE_EVENTS_SUPPORTED = ['mouseup', 'touchend'];
 
@@ -383,45 +385,45 @@ class DropdownLayout extends React.PureComponent {
     );
   }
 
-  _renderOption({ option, idx }) {
-    const { value, id, disabled, title, overrideStyle, linkTo } = option;
+  _convertOption(option) {
+    const { value, id, title: isTitle } = option;
+
     if (value === DIVIDER_OPTION_VALUE) {
-      return this._renderDivider(idx, `dropdown-divider-${id || idx}`);
+      return listItemSectionBuilder({
+        dataHook: OPTION_DATA_HOOKS.DIVIDER,
+        id,
+        type: 'divider',
+      });
     }
 
-    const content = this._renderItem({
-      option,
-      idx,
-      selected: id === this.state.selectedId,
-      hovered: idx === this.state.hovered,
-      disabled: disabled || title,
-      title,
-      overrideStyle,
-      dataHook: `dropdown-item-${id}`,
-    });
+    if (isTitle) {
+      return listItemSectionBuilder({
+        dataHook: OPTION_DATA_HOOKS.TITLE,
+        id,
+        type: 'title',
+        title: value,
+      });
+    }
 
-    return linkTo ? (
+    return option;
+  }
+
+  _renderOption({ option, idx }) {
+    option = this._convertOption(option);
+
+    const content = this._renderOptionContent({ option, idx });
+
+    return option.linkTo ? (
       <a
         className={classes.linkItem}
         key={idx}
         data-hook={DATA_HOOKS.LINK_ITEM}
-        href={linkTo}
+        href={option.linkTo}
       >
         {content}
       </a>
     ) : (
       content
-    );
-  }
-
-  _renderDivider(idx, dataHook) {
-    return (
-      <div
-        key={idx}
-        data-divider="true"
-        className={classes.divider}
-        data-hook={dataHook}
-      />
     );
   }
 
@@ -442,31 +444,24 @@ class DropdownLayout extends React.PureComponent {
     );
   };
 
-  _renderItem({
-    option,
-    idx,
-    selected,
-    hovered,
-    disabled,
-    title,
-    overrideStyle,
-    dataHook,
-  }) {
+  _renderOptionContent({ option, idx }) {
     const { itemHeight, selectedHighlight } = this.props;
+    const { selectedId, hovered } = this.state;
+
+    const { id, disabled, overrideStyle } = option;
+
+    const optionState = {
+      selected: id === selectedId,
+      hovered: idx === hovered,
+      disabled,
+    };
 
     return (
       <div
-        {...this._getItemDataAttr({
-          hovered,
-          selected,
-          disabled,
-          overrideStyle,
-        })}
+        {...this._getItemDataAttr({ ...optionState, overrideStyle })}
         className={st(classes.option, {
-          selected: selected && selectedHighlight,
-          hovered,
-          disabled,
-          title,
+          ...optionState,
+          selected: optionState.selected && selectedHighlight,
           itemHeight,
           overrideStyle,
         })}
@@ -475,10 +470,10 @@ class DropdownLayout extends React.PureComponent {
         key={idx}
         onMouseEnter={() => this._onMouseEnter(idx)}
         onMouseLeave={this._onMouseLeave}
-        data-hook={dataHook}
+        data-hook={`dropdown-item-${id}`}
       >
         {typeof option.value === 'function'
-          ? option.value({ selected, hovered, disabled })
+          ? option.value(optionState)
           : option.value}
       </div>
     );
@@ -540,7 +535,12 @@ class DropdownLayout extends React.PureComponent {
   }
 
   _isSelectableOption(option) {
-    return option && option.value !== '-' && !option.disabled && !option.title;
+    return (
+      option &&
+      option.value !== DIVIDER_OPTION_VALUE &&
+      !option.disabled &&
+      !option.title
+    );
   }
 
   componentWillUnmount() {

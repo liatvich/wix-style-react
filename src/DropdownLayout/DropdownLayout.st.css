@@ -107,7 +107,7 @@
 }
 
 .option {
-  -st-states: selected, hovered, disabled, title, itemHeight(enum(small, big)), overrideStyle;
+  -st-states: selected, hovered, disabled, itemHeight(enum(small, big)), overrideStyle;
   -st-mixin: text-medium-normal;
   color: value(D10);
   line-height: 1.5;
@@ -136,14 +136,6 @@
 .option:disabled {
   color: value(D50);
   cursor: default;
-}
-
-.option:title{
-  -st-mixin: heading-h6;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  background: value(D70);
-  color: value(D20);
 }
 
 :global(.rtl) .option, :global([dir='rtl']) .option{
@@ -202,9 +194,3 @@
   text-decoration: none;
 }
 
-.divider {
-  height: 1px;
-  overflow: hidden;
-  background-color: value(D60);
-  margin: 0;
-}

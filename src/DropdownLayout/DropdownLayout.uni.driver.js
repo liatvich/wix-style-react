@@ -9,6 +9,7 @@ import {
   DATA_DIRECTION,
   DATA_SHOWN,
   DROPDOWN_LAYOUT_DIRECTIONS,
+  OPTION_DATA_HOOKS,
 } from './DataAttr';
 
 export const dropdownLayoutDriverFactory = base => {
@@ -106,11 +107,10 @@ export const dropdownLayoutDriverFactory = base => {
     },
 
     isOptionADivider: position =>
-      doIfOptionExists(
-        position,
-        async () =>
-          !!(await (await optionElementAt(position)).attr(DATA_OPTION.DIVIDER)),
-      ),
+      doIfOptionExists(position, async () => {
+        const option = await optionElementAt(position);
+        return !!(await findByHook(option, OPTION_DATA_HOOKS.DIVIDER));
+      }),
 
     isOptionExists: async optionText => {
       for (const _option of await options()) {
