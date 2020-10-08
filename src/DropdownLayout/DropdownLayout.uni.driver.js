@@ -87,16 +87,12 @@ export const dropdownLayoutDriverFactory = base => {
     hasTopArrow: async () =>
       await (await findByHook(base, DATA_HOOKS.TOP_ARROW)).exists(),
 
-    /** Checks whether DropdownLayout content direction is down
-     * @return {Promise<boolean>}
-     */
+    /** @deprecated deprecated prop */
     isDown: async () =>
       (await (await contentContainer()).attr(DATA_DIRECTION)) ===
       DROPDOWN_LAYOUT_DIRECTIONS.DOWN,
 
-    /** Checks whether DropdownLayout content direction is up
-     * @return {Promise<boolean>}
-     */
+    /** @deprecated deprecated prop */
     isUp: async () =>
       (await (await contentContainer()).attr(DATA_DIRECTION)) ===
       DROPDOWN_LAYOUT_DIRECTIONS.UP,

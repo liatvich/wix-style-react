@@ -44,12 +44,17 @@ const deprecatedPropsLogs = props => {
     {
       propName: 'itemHeight',
       deprecationMsg:
-        '<DropdownLayout/> - itemHeight prop is deprecated and will be removed in the next major release.',
+        '<DropdownLayout/> - itemHeight prop is deprecated and will be removed in the next major release. In order to set a different height than 35px, please use a builder.',
     },
     {
       propName: 'withArrow',
       deprecationMsg:
         '<DropdownLayout/>- withArrow prop is deprecated and will be removed in the next major release, please use DropdownBase (with the prop "showArrow") or Popover component instead.',
+    },
+    {
+      propName: 'dropDirectionUp',
+      deprecationMsg:
+        '<DropdownLayout/>- dropDirectionUp prop is deprecated and will be removed in the next major release, please use DropdownBase (with the prop "showArrow") or Popover component instead.',
     },
   ];
 
@@ -385,6 +390,7 @@ class DropdownLayout extends React.PureComponent {
     );
   }
 
+  /* For backwards compatibility */
   _convertOption({ option, idx }) {
     const { value, id, title: isTitle } = option;
 
@@ -434,6 +440,7 @@ class DropdownLayout extends React.PureComponent {
     return filterObject(
       {
         [DATA_OPTION.HOVERED]: hovered && !overrideStyle,
+        /* deprecated */
         [DATA_OPTION.SIZE]: itemHeight,
         [DATA_OPTION.DISABLED]: disabled,
         [DATA_OPTION.SELECTED]: selected && !overrideStyle && selectedHighlight,
@@ -479,6 +486,7 @@ class DropdownLayout extends React.PureComponent {
     );
   }
 
+  // Deprecated
   _renderTopArrow() {
     const { withArrow, visible } = this.props;
 
@@ -605,7 +613,7 @@ export function optionValidator(props, propName, componentName) {
 }
 
 DropdownLayout.propTypes = {
-  /** Whether the component opens up or down. */
+  /** @deprecated */
   dropDirectionUp: PropTypes.bool,
   /** Scroll to the selected option on opening the dropdown */
   focusOnSelectedOption: PropTypes.bool,
