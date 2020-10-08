@@ -16,6 +16,7 @@ import deprecationLog from '../utils/deprecationLog';
 import { filterObject } from '../utils/filterObject';
 import ReactDOM from 'react-dom';
 import { listItemSectionBuilder } from '../ListItemSection';
+import { listItemSelectBuilder } from '../ListItemSelect';
 
 const MOUSE_EVENTS_SUPPORTED = ['mouseup', 'touchend'];
 
@@ -410,6 +411,11 @@ class DropdownLayout extends React.PureComponent {
         title: value,
       });
     }
+    //
+    // /** a string or a node */
+    // if(typeof value !== 'function' ){
+    //   return listItemSelectBuilder({ ...option, title: value})
+    // }
 
     return option;
   }
