@@ -6,6 +6,7 @@ import {
   DATA_SHOWN,
   DATA_DIRECTION,
   DROPDOWN_LAYOUT_DIRECTIONS,
+  OPTION_DATA_HOOKS,
 } from './DataAttr';
 
 const dropdownLayoutDriverFactory = ({ element }) => {
@@ -62,9 +63,13 @@ const dropdownLayoutDriverFactory = ({ element }) => {
     isLinkOption: position =>
       optionElementAt(position).tagName.toLowerCase() === 'a',
     isOptionADivider: position =>
-      doIfOptionExists(position, () =>
-        optionElementAt(position).hasAttribute(DATA_OPTION.DIVIDER),
-      ),
+      doIfOptionExists(position, () => {
+        const option = optionElementAt(position);
+        const divider = option.querySelector(
+          `[data-hook="${OPTION_DATA_HOOKS.DIVIDER}"]`,
+        );
+        return !!divider;
+      }),
     isOptionExists: optionText =>
       [].filter.call(
         optionElements.childNodes,
@@ -183,7 +188,12 @@ const createOptionDriver = option => ({
     option.hasAttribute(DATA_OPTION.SELECTED_GLOBAL),
   content: () => option.textContent,
   click: () => ReactTestUtils.Simulate.click(option),
-  isDivider: () => option.hasAttribute(DATA_OPTION.DIVIDER),
+  isDivider: () => {
+    const divider = option.querySelector(
+      `[data-hook="${OPTION_DATA_HOOKS.DIVIDER}"]`,
+    );
+    return !!divider;
+  },
   isDisabled: () => option.hasAttribute(DATA_OPTION.DISABLED),
 });
 

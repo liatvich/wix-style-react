@@ -13,13 +13,13 @@ import { mount } from 'enzyme';
 import { dropdownLayoutTestkitFactory } from '../../../testkit/enzyme';
 
 describe('DropdownLayout', () => {
-  // describe('[sync]', () => {
-  //   runTests(createRendererWithDriver(dropdownLayoutDriverFactory));
-  // });
-
-  describe('[async]', () => {
-    runTests(createRendererWithUniDriver(dropdownLayoutUniDriverFactory), true);
+  describe('[sync]', () => {
+    runTests(createRendererWithDriver(dropdownLayoutDriverFactory));
   });
+
+  // describe('[async]', () => {
+  //   runTests(createRendererWithUniDriver(dropdownLayoutUniDriverFactory), true);
+  // });
 
   const options = [
     { id: 0, value: 'Option 1' },
