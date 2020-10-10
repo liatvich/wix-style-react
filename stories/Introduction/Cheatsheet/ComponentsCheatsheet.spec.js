@@ -12,7 +12,7 @@ import TooltipFamily from './componentsFamilies/TooltipFamily';
 import NotificationFamily from './componentsFamilies/NotificationFamily';
 // import ModalFamily from './componentsFamilies/ModalFamily';
 import PickerFamily from './componentsFamilies/PickerFamily';
-// import OtherFamily from './componentsFamilies/OtherFamily';
+import OtherFamily from './componentsFamilies/OtherFamily';
 import ContentWidgetsFamily from './componentsFamilies/ContentWidgetsFamily';
 import InternalFamily from './componentsFamilies/InternalFamily';
 
@@ -27,7 +27,7 @@ const componentsFamiliesArr = [
   NotificationFamily,
   // ModalFamily,
   PickerFamily,
-  // OtherFamily,
+  OtherFamily,
   ContentWidgetsFamily,
   InternalFamily,
 ];

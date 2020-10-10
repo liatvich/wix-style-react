@@ -293,7 +293,7 @@ const TagsExample = () => {
   const renderTagsLayout = tagsArr => (
     <Layout cols={6} gap="5px">
       {tagsArr.map((tagProps, i) => (
-        <Cell>{renderTag({ ...tagProps, key: `tag-${i + 1}` })}</Cell>
+        <Cell key={i}>{renderTag({ ...tagProps, key: `tag-${i + 1}` })}</Cell>
       ))}
     </Layout>
   );
