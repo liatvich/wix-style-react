@@ -20,7 +20,6 @@ import {
   symbolsGroup,
 } from '../../../symbolsComponentsMapping/symbols';
 
-import GoogleMapsClient from 'wix-style-react/clients/GoogleMapsClient';
 import GoogleAPILoader from '../../../utils/GoogleAPILoader';
 
 import { Category } from '../../../storiesHierarchy';
@@ -38,6 +37,7 @@ import {
   MultiSelect,
   FormField,
   GoogleAddressInput,
+  clients,
   Search,
   ImageViewer,
   VariableInput,
@@ -316,7 +316,7 @@ class GoogleAddressInputExample extends PureComponent {
               value={value}
               onChange={this.onAddressChange}
               onSet={this.onAddressSet}
-              Client={GoogleMapsClient}
+              Client={clients.GoogleMapsClient}
             />
           </GoogleAPILoader>
         </FormField>
