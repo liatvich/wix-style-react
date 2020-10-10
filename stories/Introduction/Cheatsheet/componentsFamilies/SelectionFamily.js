@@ -279,7 +279,7 @@ class ThumbnailWithTitleExample extends PureComponent {
   }
 }
 
-class ListSmallThumbnailaExmaple extends PureComponent {
+class ListSmallThumbnailExample extends PureComponent {
   state = { selected: 1 };
 
   render() {
@@ -287,7 +287,7 @@ class ListSmallThumbnailaExmaple extends PureComponent {
     return (
       <Box>
         {[1, 2, 3].map(n => (
-          <Box marginRight="30px">
+          <Box key={`list-thumbnail-box-${n}`} marginRight="30px">
             <Thumbnail
               key={`list-thumbnail-${n}`}
               title="Thumbnail Title"
@@ -316,7 +316,7 @@ const ThumbnailSelectExamples = () => {
   return (
     <SingleComponentSideBySide {...singleComponentProps}>
       <ThumbnailWithTitleExample />
-      <ListSmallThumbnailaExmaple />
+      <ListSmallThumbnailExample />
     </SingleComponentSideBySide>
   );
 };

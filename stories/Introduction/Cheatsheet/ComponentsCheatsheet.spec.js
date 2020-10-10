@@ -2,11 +2,10 @@ import React from 'react';
 import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
 import { baseUniDriverFactory } from '../../../test/utils/unidriver';
 
-// importing components by family type
 import FoundationFamily from './componentsFamilies/FoundationFamily';
 import LayoutFamily from './componentsFamilies/LayoutFamily/LayoutFamily';
 import InputFamily from './componentsFamilies/InputFamily';
-// import SelectionFamily from './componentsFamilies/SelectionFamily';
+import SelectionFamily from './componentsFamilies/SelectionFamily';
 // import ButtonFamily from './componentsFamilies/ButtonFamily';
 // import NavigationFamily from './componentsFamilies/NavigationFamily';
 // import TooltipFamily from './componentsFamilies/TooltipFamily';
@@ -21,7 +20,7 @@ const componentsFamiliesArr = [
   FoundationFamily,
   LayoutFamily,
   InputFamily,
-  // SelectionFamily,
+  SelectionFamily,
   // ButtonFamily,
   // NavigationFamily,
   // TooltipFamily,
