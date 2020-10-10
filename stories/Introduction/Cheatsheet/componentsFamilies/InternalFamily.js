@@ -218,7 +218,6 @@ const ListItemEditableExample = () => {
           cancelButtonTooltipContent="Cancel"
           approveButtonTooltipContent="Approve"
           size="small"
-          margins="none"
         />
       </Preview>
     </SingleComponentSideBySide>

@@ -14,7 +14,7 @@ import NotificationFamily from './componentsFamilies/NotificationFamily';
 import PickerFamily from './componentsFamilies/PickerFamily';
 // import OtherFamily from './componentsFamilies/OtherFamily';
 import ContentWidgetsFamily from './componentsFamilies/ContentWidgetsFamily';
-// import InternalFamily from './componentsFamilies/InternalFamily';
+import InternalFamily from './componentsFamilies/InternalFamily';
 
 const componentsFamiliesArr = [
   FoundationFamily,
@@ -29,7 +29,7 @@ const componentsFamiliesArr = [
   PickerFamily,
   // OtherFamily,
   ContentWidgetsFamily,
-  // InternalFamily,
+  InternalFamily,
 ];
 
 componentsFamiliesArr.forEach(Family => {
