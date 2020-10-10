@@ -19,6 +19,7 @@ import {
 
 import More from 'wix-ui-icons-common/More';
 import Print from 'wix-ui-icons-common/Print';
+import ascendInvoice from '../../../../test/assets/ascend-invoice.jpg';
 import { Category } from '../../../storiesHierarchy';
 
 import {
@@ -277,8 +278,6 @@ class ModalPreviewLayoutExample extends PureComponent {
       </Box>
     );
 
-    const ascendInvoicePath = 'media/ascend-invoice.45b18b97.jpg';
-
     return (
       <SingleComponentSideBySide {...singleComponentProps}>
         <Button onClick={this.toggleModalDisplay}>
@@ -291,7 +290,7 @@ class ModalPreviewLayoutExample extends PureComponent {
             onClose={this.toggleModalDisplay}
           >
             <Box>
-              <img src={ascendInvoicePath} />
+              <img src={ascendInvoice} />
             </Box>
           </ModalPreviewLayout>
         </Modal>

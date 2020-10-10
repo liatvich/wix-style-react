@@ -10,12 +10,12 @@ import ButtonFamily from './componentsFamilies/ButtonFamily';
 import NavigationFamily from './componentsFamilies/NavigationFamily';
 import TooltipFamily from './componentsFamilies/TooltipFamily';
 import NotificationFamily from './componentsFamilies/NotificationFamily';
-import ModalFamily from './componentsFamilies/ModalFamily';
+// import ModalFamily from './componentsFamilies/ModalFamily';
 import PickerFamily from './componentsFamilies/PickerFamily';
 import OtherFamily from './componentsFamilies/OtherFamily';
 import ContentWidgetsFamily from './componentsFamilies/ContentWidgetsFamily';
 import InternalFamily from './componentsFamilies/InternalFamily';
-import ComponentsCheatsheet from './ComponentsCheatsheet';
+// import ComponentsCheatsheet from './ComponentsCheatsheet';
 
 const componentsFamiliesArr = [
   FoundationFamily,
@@ -26,24 +26,24 @@ const componentsFamiliesArr = [
   NavigationFamily,
   TooltipFamily,
   NotificationFamily,
-  ModalFamily,
+  // ModalFamily,
   PickerFamily,
   OtherFamily,
   ContentWidgetsFamily,
   InternalFamily,
 ];
 
-describe('ComponentsCheatsheet', () => {
-  const render = createRendererWithUniDriver(baseUniDriverFactory);
-
-  afterEach(cleanup);
-
-  it('should render', async () => {
-    const { driver } = render(<ComponentsCheatsheet />);
-
-    expect(await driver.exists()).toBe(true);
-  });
-});
+// describe('ComponentsCheatsheet', () => {
+//   const render = createRendererWithUniDriver(baseUniDriverFactory);
+//
+//   afterEach(cleanup);
+//
+//   it('should render', async () => {
+//     const { driver } = render(<ComponentsCheatsheet />);
+//
+//     expect(await driver.exists()).toBe(true);
+//   });
+// });
 
 componentsFamiliesArr.forEach(Family => {
   describe(Family.name, () => {
