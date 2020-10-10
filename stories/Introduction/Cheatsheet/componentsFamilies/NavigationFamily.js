@@ -318,10 +318,10 @@ const ComposerHeaderExample = () => {
           </ComposerHeader.Actions>
           <ComposerHeader.Actions justifyContent="flex-end">
             <ComposerHeader.SaveStatus saveStatusValue="Saving..." />
-            <ToggleButton tooltipContent="Undo">
+            <ToggleButton labelValue="Undo">
               <Undo />
             </ToggleButton>
-            <ToggleButton tooltipContent="Redo">
+            <ToggleButton labelValue="Redo">
               <Redo />
             </ToggleButton>
           </ComposerHeader.Actions>

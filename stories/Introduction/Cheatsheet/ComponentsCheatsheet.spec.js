@@ -7,7 +7,7 @@ import LayoutFamily from './componentsFamilies/LayoutFamily/LayoutFamily';
 import InputFamily from './componentsFamilies/InputFamily';
 import SelectionFamily from './componentsFamilies/SelectionFamily';
 import ButtonFamily from './componentsFamilies/ButtonFamily';
-// import NavigationFamily from './componentsFamilies/NavigationFamily';
+import NavigationFamily from './componentsFamilies/NavigationFamily';
 // import TooltipFamily from './componentsFamilies/TooltipFamily';
 import NotificationFamily from './componentsFamilies/NotificationFamily';
 // import ModalFamily from './componentsFamilies/ModalFamily';
@@ -22,7 +22,7 @@ const componentsFamiliesArr = [
   InputFamily,
   SelectionFamily,
   ButtonFamily,
-  // NavigationFamily,
+  NavigationFamily,
   // TooltipFamily,
   NotificationFamily,
   // ModalFamily,
