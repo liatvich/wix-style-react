@@ -238,10 +238,10 @@ const ToggleButtonExample = () => {
   return (
     <SingleComponentSideBySide {...singleComponentProps}>
       <Layout cols={2} gap={0} justifyItems="center" alignItems="center">
-        <ToggleButton tooltipContent="Crop & Rotate">
+        <ToggleButton labelValue="Crop & Rotate">
           <CropRotate />
         </ToggleButton>
-        <ToggleButton tooltipContent="Crop & Rotate" skin="dark">
+        <ToggleButton labelValue="Crop & Rotate" skin="dark">
           <CropRotate />
         </ToggleButton>
       </Layout>

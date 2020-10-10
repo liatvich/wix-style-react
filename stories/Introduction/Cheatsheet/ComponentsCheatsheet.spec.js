@@ -6,7 +6,7 @@ import FoundationFamily from './componentsFamilies/FoundationFamily';
 import LayoutFamily from './componentsFamilies/LayoutFamily/LayoutFamily';
 import InputFamily from './componentsFamilies/InputFamily';
 import SelectionFamily from './componentsFamilies/SelectionFamily';
-// import ButtonFamily from './componentsFamilies/ButtonFamily';
+import ButtonFamily from './componentsFamilies/ButtonFamily';
 // import NavigationFamily from './componentsFamilies/NavigationFamily';
 // import TooltipFamily from './componentsFamilies/TooltipFamily';
 import NotificationFamily from './componentsFamilies/NotificationFamily';
@@ -21,7 +21,7 @@ const componentsFamiliesArr = [
   LayoutFamily,
   InputFamily,
   SelectionFamily,
-  // ButtonFamily,
+  ButtonFamily,
   // NavigationFamily,
   // TooltipFamily,
   NotificationFamily,
