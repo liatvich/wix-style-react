@@ -18,6 +18,4 @@ const LayoutFamily = () => (
   </FamilyStructure>
 );
 
-LayoutFamily.displayName = 'LayoutFamily';
-
 export default LayoutFamily;

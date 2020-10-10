@@ -232,6 +232,4 @@ const FoundationFamily = () => (
   </FamilyStructure>
 );
 
-FoundationFamily.displayName = 'FoundationFamily';
-
 export default FoundationFamily;
