@@ -15,6 +15,7 @@ import PickerFamily from './componentsFamilies/PickerFamily';
 import OtherFamily from './componentsFamilies/OtherFamily';
 import ContentWidgetsFamily from './componentsFamilies/ContentWidgetsFamily';
 import InternalFamily from './componentsFamilies/InternalFamily';
+// import ComponentsCheatsheet from './ComponentsCheatsheet';
 
 const componentsFamiliesArr = [
   FoundationFamily,
