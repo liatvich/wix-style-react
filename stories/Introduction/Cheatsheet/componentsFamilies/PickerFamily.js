@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import React, { PureComponent } from 'react';
-import { R10, Y10, G10 } from '../../../../src/colors.scss';
+
 import {
   NotDefined,
   FamilyStructure,
@@ -31,6 +31,8 @@ import {
   Swatches,
   Layout,
 } from 'wix-style-react';
+
+const colors = ['#EE5951', '#FDB10C', '#60BC57'];
 
 const groupSymbol = symbolsGroup.pickers;
 
@@ -214,7 +216,7 @@ const ModalSelectorExample = () => {
 };
 
 class ColorPickerExample extends PureComponent {
-  state = { color: R10 };
+  state = { color: colors[0] };
 
   onColorChange = color => this.setState({ color });
 
@@ -242,7 +244,7 @@ class ColorPickerExample extends PureComponent {
               showClear
               selected={color}
               onClick={this.onColorChange}
-              colors={[R10, Y10, G10]}
+              colors={colors}
             />
           </ColorPicker>
         </Preview>
@@ -462,7 +464,7 @@ class CalendarPanelExample extends PureComponent {
 }
 
 class SwatchesExample extends PureComponent {
-  state = { color: R10 };
+  state = { color: colors[0] };
 
   onColorChange = color => this.setState({ color });
 
@@ -484,7 +486,7 @@ class SwatchesExample extends PureComponent {
           showClear
           selected={color}
           onClick={this.onColorChange}
-          colors={[R10, Y10, G10]}
+          colors={colors}
         />
       </SingleComponentSideBySide>
     );

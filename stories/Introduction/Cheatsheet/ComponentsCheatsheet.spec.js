@@ -8,10 +8,10 @@ import InputFamily from './componentsFamilies/InputFamily';
 import SelectionFamily from './componentsFamilies/SelectionFamily';
 import ButtonFamily from './componentsFamilies/ButtonFamily';
 import NavigationFamily from './componentsFamilies/NavigationFamily';
-// import TooltipFamily from './componentsFamilies/TooltipFamily';
+import TooltipFamily from './componentsFamilies/TooltipFamily';
 import NotificationFamily from './componentsFamilies/NotificationFamily';
 // import ModalFamily from './componentsFamilies/ModalFamily';
-// import PickerFamily from './componentsFamilies/PickerFamily';
+import PickerFamily from './componentsFamilies/PickerFamily';
 // import OtherFamily from './componentsFamilies/OtherFamily';
 import ContentWidgetsFamily from './componentsFamilies/ContentWidgetsFamily';
 // import InternalFamily from './componentsFamilies/InternalFamily';
@@ -23,10 +23,10 @@ const componentsFamiliesArr = [
   SelectionFamily,
   ButtonFamily,
   NavigationFamily,
-  // TooltipFamily,
+  TooltipFamily,
   NotificationFamily,
   // ModalFamily,
-  // PickerFamily,
+  PickerFamily,
   // OtherFamily,
   ContentWidgetsFamily,
   // InternalFamily,
