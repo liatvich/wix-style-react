@@ -28,13 +28,7 @@ export default (base, body) => {
           const contentElement = await getContent(base).getNative(); // eslint-disable-line no-restricted-properties
           return contentElement.sendKeys(text);
         case 'puppeteer':
-          return page.$eval(
-            '.public-DraftEditor-content',
-            (input, newText) => {
-              input.value = newText;
-            },
-            text,
-          );
+          return page.type('.public-DraftEditor-content', text);
         default:
           throw new Error(
             `Driver's base element is of unsupported type "${base.type}"`,
