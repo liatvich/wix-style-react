@@ -97,6 +97,12 @@ export default {
               'The BadgeSelect has 3 different types: "solid" (default), "outlined", "transparent". This type is used to define the `<Badge/>` type.',
             source: examples.typeExample,
           }),
+          example({
+            title: 'Subtitle',
+            text:
+              'The BadgeSelect can display a subtitle per option. This is an example of options with subtitles.',
+            source: examples.subtitle,
+          }),
         ],
       }),
 

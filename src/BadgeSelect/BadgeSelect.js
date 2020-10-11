@@ -89,7 +89,16 @@ class BadgeSelect extends React.Component {
 
   get options() {
     const { options } = this.props;
-    return Array.isArray(options) ? options.map(badgeSelectItemBuilder) : [];
+    const { selectedBadge } = this.state;
+
+    return Array.isArray(options)
+      ? options.map(option =>
+          badgeSelectItemBuilder({
+            ...option,
+            selected: selectedBadge.id === option.id,
+          }),
+        )
+      : [];
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {

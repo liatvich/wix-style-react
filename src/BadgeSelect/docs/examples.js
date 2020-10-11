@@ -87,3 +87,28 @@ export const typeExample = `
         </Cell>
       </Layout>
 `;
+
+export const subtitle = `
+  <Layout>
+    <Cell>
+      <BadgeSelect
+        options={
+          [
+            {id: '0', skin: 'general', text:'general', subtitle: 'subtitle'},
+            {id: '1', skin: 'standard', text:'standard'},
+          ]
+        }
+      />
+    </Cell>
+    <Cell>
+      <BadgeSelect
+        options={
+          [
+            {id: '0', skin: 'general', text:'general', subtitle: 'this is a very long subtitle'},
+            {id: '1', skin: 'standard', text:'standard'},
+          ]
+        }
+      />
+    </Cell>
+  </Layout>
+`;

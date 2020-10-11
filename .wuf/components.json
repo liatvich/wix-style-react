@@ -407,6 +407,9 @@
   "SortableList": {
     "path": "src/SortableList"
   },
+  "SparklineChart": {
+    "path": "src/SparklineChart"
+  },
   "StarsRatingBar": {
     "path": "src/StarsRatingBar"
   },

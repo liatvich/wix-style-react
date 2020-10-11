@@ -5,5 +5,6 @@ function badgeSelectItemBuilderWithAllProps() {
     id: '1',
     skin: 'danger',
     text: 'text',
+    subtitle: 'subtitle text',
   });
 }

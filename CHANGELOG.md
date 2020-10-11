@@ -15,6 +15,7 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+- `<BadgeSelect/>` - Added subtitle [#6057](https://github.com/wix/wix-style-react/pull/6057)
 
 ## 9.18.1 - 2020-10-08
 ### Fixed

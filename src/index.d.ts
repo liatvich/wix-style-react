@@ -472,6 +472,10 @@ export * from './FeatureList';
 export { default as MarketingPageLayoutContent } from './MarketingPageLayoutContent';
 
 export { default as FunnelChart } from './FunnelChart';
+
+export { default as SparklineChart } from './SparklineChart';
+export * from './SparklineChart';
+
 export * from './FunnelChart';
 
 export * from './MarketingPageLayoutContent';

@@ -3,6 +3,7 @@ import * as React from 'react';
 export type BadgeSelectItemBuilderFn = (data: {
   id: string | number;
   text: React.ReactNode;
+  subtitle?: string;
   skin: BadgeSelectItemSkin;
 }) => {
   id: string | number;

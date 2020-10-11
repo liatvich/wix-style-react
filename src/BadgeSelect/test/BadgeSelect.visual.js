@@ -97,6 +97,29 @@ const interactiveTests = [
           driver.click();
         },
       },
+      {
+        it: 'Should render the option subtitle',
+        props: {
+          options: [
+            {
+              id: '0',
+              skin: 'general',
+              text: `general`,
+              subtitle: `subtitle - general general`,
+            },
+            {
+              id: '1',
+              skin: 'standard',
+              text: `standard`,
+            },
+          ],
+        },
+        componentDidMount: async () => {
+          const { driver } = createDriver(interactiveDataHook);
+
+          driver.click();
+        },
+      },
     ],
   },
 ];

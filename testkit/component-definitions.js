@@ -784,4 +784,14 @@ export default {
       ],
     },
   },
+
+  SparklineChart: {
+    props: {
+      data: [
+        { label: new Date('Thu Sep 4 2020'), value: 3 },
+        { label: new Date('Thu Sep 5 2020'), value: 17 },
+        { label: new Date('Thu Sep 6 2020'), value: 18 },
+      ],
+    },
+  },
 };
