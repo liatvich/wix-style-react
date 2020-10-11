@@ -175,7 +175,10 @@ export const contentWidgetsSymbols = {
   barChart: '12.10 Bar Chart',
   areaChart: '12.11 Area Chart',
   timeline: '12.12 Timeline',
+  sparkline: '12.17 Sparkline',
   funnelChart: '12.18 Funnel Chart',
+  stackedBarChart: '12.x Stacked Bar Chart',
+  selectableAccordion: '12.x Selectable Accordion',
 };
 
 /**

@@ -22,6 +22,10 @@ import Hint from 'wix-ui-icons-common/Hint';
 import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 
 import {
+  Layout,
+  Input,
+  FormField,
+  Dropdown,
   Text,
   Box,
   CardGalleryItem,
@@ -45,6 +49,7 @@ import {
   Timeline,
   FunnelChart,
   AreaChart,
+  SelectableAccordion,
 } from 'wix-style-react';
 
 const groupSymbol = symbolsGroup.contentWidgets;
@@ -686,6 +691,90 @@ const FunnelChartExample = () => {
   );
 };
 
+const SelectableAccordionExample = () => {
+  const symbol = contentWidgetsSymbols.selectableAccordion;
+  const components = contentWidgetsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
+
+  const items = [
+    {
+      initiallyOpen: true,
+      title: 'Free Plan',
+      subtitle: 'Offer this plan free of charge',
+      content: (
+        <FormField label="Length of Plan" required>
+          <Dropdown
+            placeholder="Select"
+            options={[{ id: 0, value: '1 Month' }]}
+          />
+        </FormField>
+      ),
+    },
+    {
+      title: 'One-time Payment',
+      subtitle: 'Charge a single upfront fee',
+      content: (
+        <Layout cols={1}>
+          <FormField label="Price" required>
+            <Input value={99} prefix={<Input.Affix>$</Input.Affix>} />
+          </FormField>
+          <FormField label="Length of Plan" required>
+            <Dropdown
+              placeholder="Select"
+              options={[{ id: 0, value: '1 Month' }]}
+            />
+          </FormField>
+        </Layout>
+      ),
+    },
+  ];
+
+  return (
+    <SingleComponentStacked {...singleComponentProps}>
+      <Preview>
+        <SelectableAccordion items={items} />
+      </Preview>
+    </SingleComponentStacked>
+  );
+};
+
+const SparklineExample = () => {
+  const symbol = contentWidgetsSymbols.sparkline;
+  const components = contentWidgetsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: components,
+  };
+
+  return (
+    <SingleComponentStacked {...singleComponentProps}>
+      <NotDeveloped />
+    </SingleComponentStacked>
+  );
+};
+
+const StackedBarChartExample = () => {
+  const symbol = contentWidgetsSymbols.stackedBarChart;
+  const components = contentWidgetsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: components,
+  };
+
+  return (
+    <SingleComponentStacked {...singleComponentProps}>
+      <NotDeveloped />
+    </SingleComponentStacked>
+  );
+};
+
 const ContentWidgetsFamily = () => (
   <FamilyStructure title={groupSymbol}>
     <ImageWidgetExample />
@@ -701,6 +790,7 @@ const ContentWidgetsFamily = () => (
     <AreaChartExample />
     <TimelineExample />
     <FunnelChartExample />
+    <SelectableAccordionExample />
   </FamilyStructure>
 );
 

@@ -178,6 +178,9 @@ export const contentWidgetsComponentsNames = {
   MarketingLayout: 'MarketingLayout',
   BarChart: 'BarChart',
   Timeline: 'Timeline',
+  Sparkline: 'Sparkline',
+  SelectableAccordion: 'SelectableAccordion',
+  StackedBarChart: 'StackedBarChart',
   FunnelChart: 'FunnelChart',
   AreaChart: 'AreaChart',
 };
