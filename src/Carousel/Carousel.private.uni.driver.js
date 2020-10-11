@@ -4,7 +4,7 @@ import ReactTestUtils from 'react-dom/test-utils';
 import { iconButtonTestkitFactory } from 'wix-style-react/dist/testkit';
 
 export const carouselPrivateUniDriverFactory = base => {
-  const getCurrentSlide = () => base.$('.slick-current');
+  const getCurrentSlide = () => base.$('[aria-hidden="false"]');
 
   const arrowButtonDriver = direction =>
     iconButtonTestkitFactory(`[data-hook="${base.$(`${direction}-button`)}"]`);
