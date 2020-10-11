@@ -94,9 +94,11 @@ class AddItem extends Component {
     const textSize = size === 'tiny' ? 'small' : 'medium';
 
     return (
-      <div className={st(classes.text, { size })}>
+      <div className={st(classes.textWrapper, { size })}>
         <Text
+          className={classes.textContent}
           weight="thin"
+          skin="standard"
           size={textSize}
           dataHook={dataHooks.itemText}
           ellipsis

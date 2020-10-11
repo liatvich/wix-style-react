@@ -197,38 +197,42 @@
 
 /* Text */
 
-.text {
+.textWrapper {
   -st-states:size(enum(tiny, small, medium, large));
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.text:size(tiny) {
+.textWrapper:size(tiny) {
   max-width: 100%;
   flex-basis: auto;
 }
 
-.text:size(small) {
+.textWrapper:size(small) {
   width: 100%;
   padding-top: 6px;
 }
 
-.text:size(medium) {
+.textWrapper:size(medium) {
   width: 100%;
   padding-top: 12px;
 }
 
-.text:size(large) {
+.textWrapper:size(large) {
   width: 100%;
   padding-top: 12px;
 }
 
-.text Text {
+.textContent {
+  -st-extends: Text;
+}
+
+.textContent:skin(standard) {
   color: value(THEME-COLOR-10);
 }
 
-.root:disabled .text Text {
+.root:disabled .textContent:skin(standard) {
   color: value(D10-30);
 }
 
